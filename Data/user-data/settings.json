@@ -1,0 +1,38 @@
+{
+    "workbench.colorTheme": "Community Material Theme Darker High Contrast",
+    "workbench.iconTheme": "vscode-great-icons",
+    "editor.tabCompletion": "on",
+    "editor.fontFamily": " Source Code Pro,Consolas, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "editor.lineHeight": 23,
+    "window.zoomLevel": 0.3,
+    "terminal.integrated.fontSize": 15,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.enableAppInsights": false,
+    "code-runner.saveFileBeforeRun": true,
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**"
+    ],
+    "C_Cpp.default.defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+    ],
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.cStandard": "c17",
+    "C_Cpp.autocompleteAddParentheses": true,
+    "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0 }",
+    "debug.terminal.clearBeforeReusing": true,
+    "editor.formatOnSave": true,
+    "telemetry.telemetryLevel": "off",
+    "code-runner.executorMapByGlob": {
+        "*_t.cpp": "cls; function time($block) { $sw = [Diagnostics.Stopwatch]::StartNew(); &$block; $sw.Stop(); '\n\nexecution time : '+ $sw.Elapsed.TotalSeconds +' S'} && cd $dir && g++ $fileName -o $fileNameWithoutExt && if(test-path in){time {cat in | $dir$fileNameWithoutExt}} else{time $dir$fileNameWithoutExt}",
+        "pom.xml": "cd $dir && mvn clean package",
+        // "*.cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && if(test-path in){cat in | $dir$fileNameWithoutExt} else{$dir$fileNameWithoutExt}",
+        "*-n.cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "*.cpp": "cls;cd $dir && g++ \"$fileName\" -o \"$fileNameWithoutExt\" && $data = 0; $i = 1; function time($block) { $sw = [Diagnostics.Stopwatch]::StartNew(); &$block; $sw.Stop(); $sw.Elapsed.TotalSeconds } ; if (Test-Path -path \"$fileNameWithoutExt_test\") { while (Test-Path -path (\"$fileNameWithoutExt_test/{0}in\" -f $i)) { $data = time { Get-Content (\"$fileNameWithoutExt_test/{0}in\" -f $i) | ./$fileNameWithoutExt | foreach { $_.TrimEnd() }};  \"`n=======================================\"; if (Test-Path -path (\"$fileNameWithoutExt_test/{0}out\" -f $i)) {$out = Get-Content (\"$fileNameWithoutExt_test/{0}out\" -f $i)| foreach { $_.TrimEnd() }; if (($data[0..($data.Length - 2)] -join \"`n\").TrimEnd() -eq ($out -join \"`n\").TrimEnd()) { \"[v] testCase{0}::SUCCESS ({1} Sec)\" -f $i, $data[-1]; }else { \"[x] testCase{0}::FAILED ({1} Sec)\" -f $i, $data[-1]; } }  else { \"({0} Sec)\" -f $data[-1]; }  \"=======================================`n\"; $data[0..($data.Length - 2)]; $i++; \"---------------------\"; } }else{.\\\"$fileNameWithoutExt\"}"
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.ignoreSelection": true,
+}
